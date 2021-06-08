@@ -1,0 +1,9 @@
+main {
+  padding-top: 2rem;
+  background-color: $primaryColour;
+  min-height: 70vh;
+  width: 100vw;
+  @include flexCenter(column);
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}

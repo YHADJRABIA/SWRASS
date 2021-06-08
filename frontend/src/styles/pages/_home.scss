@@ -1,0 +1,10 @@
+/*------------------- Page de recherche -------------------*/
+.logout {
+  margin: 0 auto;
+}
+
+.page-not-found {
+  height: 100vh;
+  @include flexCenter(column);
+  justify-content: center;
+}

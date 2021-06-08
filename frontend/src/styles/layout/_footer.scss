@@ -1,0 +1,10 @@
+footer {
+  @include flexCenter(row);
+  justify-content: center;
+  height: 5rem;
+  background-color: #1b1a1a;
+}
+svg {
+  background-color: $primaryColour;
+  margin-bottom: -1rem;
+}

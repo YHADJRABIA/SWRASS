@@ -1,0 +1,28 @@
+// Variables
+// Barre de navigation
+nav {
+  width: 100%;
+  color: $primaryColour;
+  @include flexCenter(row);
+  justify-content: space-evenly;
+  height: 15rem;
+  background-image: $nav-gradient;
+  ul {
+    width: 100%;
+    @include flexCenter(row);
+    justify-content: space-evenly;
+  }
+
+  .logo {
+    @include respond-to("medium") {
+      max-width: 20rem;
+      max-height: 12rem;
+    }
+    max-width: 15rem;
+    max-height: 10rem;
+    transition: all 0.3s ease-in;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

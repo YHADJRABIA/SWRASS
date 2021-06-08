@@ -1,0 +1,65 @@
+//Fonts
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker|Poppins|Press+Start+2P|Audiowide|Lobster");
+
+//Font types
+$primaryFont: "Permanent Marker";
+$regularFont: "Audiowide";
+$secondaryFont: "Poppins";
+
+/* Fonts */
+h1 {
+  font-size: 4rem;
+  letter-spacing: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+h4 {
+  font-size: 1.6rem;
+}
+
+h5 {
+}
+
+p {
+  font-size: 1.2rem;
+}
+
+/* Various */
+
+i {
+  cursor: pointer;
+  font-size: 2.5rem;
+}
+
+img {
+  cursor: pointer;
+}
+
+small {
+  font-family: $secondaryFont;
+  color: $primaryColour;
+  font-size: 1.8rem;
+}
+
+span {
+  cursor: pointer;
+  font-size: 1.1rem;
+  letter-spacing: 0.2rem;
+  color: $secondaryColour;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+a {
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: inherit;
+}

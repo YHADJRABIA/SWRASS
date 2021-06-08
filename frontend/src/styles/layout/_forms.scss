@@ -1,0 +1,105 @@
+// Container
+.form-container {
+  background-color: $primaryColour;
+  justify-content: center;
+}
+
+form {
+  @include flexCenter(column);
+  justify-content: space-between;
+  background-color: #fff;
+  border: 1px solid $primaryColour;
+  border-radius: 2.3rem;
+  margin: 4rem;
+  padding: 2rem;
+  width: 35rem;
+  min-height: 40rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  @include respond-to("medium") {
+    width: 60rem;
+  }
+
+  & .social-media i {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin: 0 0.45rem;
+    border: 1px solid #333;
+    border-radius: 50%;
+    @include flexCenter(row);
+    justify-content: center;
+    &:hover {
+      color: $buttonPrimary;
+      border-color: $buttonPrimary;
+    }
+  }
+}
+
+// Title
+.form-title {
+  text-align: center;
+  color: $primaryText-colour;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+// Fields
+input {
+  margin-left: 2rem;
+  background: none;
+  outline: none;
+  border: none;
+  line-height: 1;
+  font-size: 1.5rem;
+  color: #333;
+  &::placeholder {
+    text-transform: capitalize;
+    font-weight: 600;
+  }
+  &:placeholder-shown {
+    color: #aaa;
+    font-weight: 500;
+  }
+}
+
+.input-field {
+  max-width: 38rem;
+  width: 100%;
+  height: 5.5rem;
+  background-color: $primaryColour;
+  margin: 1rem 0;
+  border-radius: 1.5rem;
+  display: grid;
+  grid-template-columns: 15% 85%;
+  padding: 0 0.4rem;
+  position: relative;
+  i {
+    text-align: center;
+    line-height: 5.5rem;
+    color: #acacac;
+    margin-left: 2rem;
+    font-size: 2rem;
+  }
+}
+
+// Search bar
+
+.search-bar {
+  @include flexCenter(row);
+  justify-content: space-between;
+  background-color: #fff;
+  border: 1px solid #acacac;
+  border-radius: 5rem;
+  width: 100vw;
+  height: 5rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+  z-index: 1;
+
+  @include respond-to("medium") {
+    width: 40rem;
+  }
+
+  i {
+    padding-right: 1rem;
+    border-radius: 50%;
+  }
+}

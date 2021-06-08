@@ -1,0 +1,12 @@
+/*------------------ Authentification ------------------*/
+
+.login-page {
+  @include flexCenter(column);
+  justify-content: center;
+}
+
+.ra-logo {
+  width: 7rem;
+  height: 7rem;
+  //animation: rotation 2s infinite linear;
+}

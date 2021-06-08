@@ -1,0 +1,44 @@
+.search-section {
+  @include flexCenter(column);
+  justify-content: space-between;
+  min-height: 20rem;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+  min-height: 7rem;
+
+  @include respond-to("medium") {
+    width: 70rem;
+  }
+}
+
+.filter-list {
+  width: inherit;
+  @include flexCenter(row);
+  justify-content: space-evenly;
+}
+
+.filter-item {
+  cursor: pointer;
+  font-weight: bolder;
+  @include flexCenter(column);
+  background-color: #fff;
+  justify-content: space-evenly;
+  width: 10rem;
+  height: 10rem;
+  margin: 0.5rem;
+  border-radius: 3rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+.active-filter {
+  background-color: yellow;
+  color: white;
+}
