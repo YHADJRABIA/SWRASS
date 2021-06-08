@@ -40,12 +40,12 @@ password: DadSucks
 #### Compulsory:
 
 - ✓ Search bar.
-- (In progress) Display name and image of every listed result.
-- (In progress) Detailed sheet for each result.
+- ✗ Display name and image of every listed result.
+- ✗ Detailed sheet for each result.
 
 #### Optional:
 
-- ✗ Extra detailed view of results .
+- ✗ Extra detailed view of results.
 - ✓ Display for authentication system.
 - ✗ Use of Redux.
 - ✗ Filter feature.
