@@ -1,0 +1,25 @@
+.detailed-container {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: $primaryColour;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info-wrapper {
+  @include flexCenter(column);
+  justify-content: space-evenly;
+  background-color: #fff;
+  height: 100vh;
+  width: 100vw;
+  border: 2px solid $primaryColour;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  @include respond-to("medium") {
+    width: 90vw;
+    height: 90vh;
+  }
+}
+.detailed-info {
+}

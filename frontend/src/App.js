@@ -8,6 +8,9 @@ import PageNotFound from "./pages/PageNotFound.js";
 import Browse from "./pages/Browse.js";
 import DetailedSheet from "./pages/DetailedSheet.js";
 
+//Components
+import Footer from "./components/Footer";
+
 // Authentification
 
 import { useAuth } from "./authentication/useAuth";

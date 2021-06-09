@@ -3,10 +3,13 @@ import { DataContext } from "../contexts/DataContext";
 
 const Filter = () => {
   const { categories } = useContext(DataContext);
+
   const [isActive, setActive] = useState(true);
   const [filterItem, setFilterItem] = useState("");
+
   let handleOnClick = (e) => {
-    setActive(!isActive);
+    console.log(e.target);
+    /*     setActive(!isActive); */
   };
   return (
     <div className="filter-container">

@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
-const Card = (info) => {
-  const { name, photo } = info;
+const Card = ({ type, name }) => {
+  useEffect(() => {
+    console.log(name);
+  }, []);
   return (
-    <div className="card">
-      <i className="fa fa-search"></i>
-      <h4> Nom</h4>
-    </div>
+    <>
+      <Link to={`/detailed`}>
+        <div className="card">
+          <i className={`card-icon fa fa-search ${type}`}></i>
+          <h4>{name}</h4>
+        </div>
+      </Link>
+    </>
   );
 };
 

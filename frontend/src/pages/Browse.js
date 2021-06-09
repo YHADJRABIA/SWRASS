@@ -20,8 +20,12 @@ import Axios from "axios";
 Axios.defaults.withCredentials = true;
 
 const Browse = () => {
-  const [category, setCategory] = useState({});
-  var [test, setTest] = useState([]);
+  let history = useHistory();
+  const { isLoading, isLoggedIn } = useAuth();
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
+  const [category, setCategory] = useState();
+
   const categoryList = [
     "people",
     "films",
@@ -32,7 +36,7 @@ const Browse = () => {
   ];
 
   useEffect(() => {
-    let fetchAPI = async () => {
+    /*     (async () => {
       for (let i of categoryList) {
         await Axios.get(`http://localhost:5001/swapi/${i}`)
           .then((res) => {
@@ -42,17 +46,34 @@ const Browse = () => {
             console.error(err);
           });
       }
+    })(); */
+
+    /* setCategory(category);*/
+
+    const fetchAPI = async () => {
+      let fetchedData = [];
+      for (let i of categoryList) {
+        fetchedData[i] = await Axios.get(`http://localhost:5001/swapi/${i}`)
+          .then((res) => {
+            setData((data) => [
+              ...data,
+              { category: i, data: res.data.results },
+            ]);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
+      setLoading(false);
+
+      //setCategory(category);
+      /*     return fetchedData; */
     };
 
-    fetchAPI().then((res) => {
-      console.log(category["people"]);
-    });
+    fetchAPI(); /* .then((res) => {
+      console.log(res);
+    }); */
   }, []);
-
-  const { isLoading, isLoggedIn } = useAuth();
-  let history = useHistory();
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
 
   if (isLoading) return <Loading />;
 
@@ -62,6 +83,7 @@ const Browse = () => {
   const handleClick = async (e) => {
     e.preventDefault();
   };
+
   return (
     <>
       <DataProvider>
@@ -72,10 +94,9 @@ const Browse = () => {
             <Filter />
           </div>
           <div className="content-section">
-            <CardList category={category["people"]} />
+            {loading ? <Loading /> : <CardList data={data} />}
           </div>
         </main>
-
         <Footer />
       </DataProvider>
     </>

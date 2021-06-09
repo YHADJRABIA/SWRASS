@@ -5,14 +5,16 @@ const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   // Fonction de recherche
-  let handleChange = (e) => {
+  let handleSearch = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
+    console.log(e.target.value);
   };
+
   return (
     <div className="search-bar">
       <input
         onChange={(e) => {
-          handleChange(e);
+          handleSearch(e);
         }}
         type="text"
         id="search-bar"

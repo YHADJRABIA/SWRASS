@@ -1,5 +1,5 @@
 .content-section {
-  margin-top: 1rem;
+  margin-top: 2.2rem;
   width: 100vw;
   min-height: 30rem;
   @include flexCenter(row);
@@ -18,17 +18,26 @@
 
 .card {
   @include flexCenter(row);
-  justify-content: space-around;
-  background-color: $buttonPrimary;
-  color: white;
-  width: inherit;
+  justify-content: flex-start;
+  background-color: #03071e;
+  color: $primaryColour;
+  width: 100vw;
   border-radius: 1rem;
   height: 8rem;
   margin: 0.2rem 0;
-  border: 1px black solid;
+  border: 1px white solid;
+  position: relative;
   @include respond-to("medium") {
-    flex-direction: row;
-    width: 20rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 30rem;
     margin: 1rem 3rem;
   }
+}
+.card-icon {
+  margin: 0 4rem;
+  /*   border-radius: 1rem;
+  padding: 1.5rem; */
+  background-color: black;
+  font-size: 2rem;
 }
