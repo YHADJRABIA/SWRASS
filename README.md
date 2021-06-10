@@ -40,15 +40,15 @@ password: DadSucks
 #### Compulsory:
 
 - ✓ Search bar.
-- ✗ Display name and image of every listed result.
+- ✓ Display name and image of every listed result.
 - ✗ Detailed sheet for each result.
 
 #### Optional:
 
-- ✗ Extra detailed view of results.
+- (In progress) Extra detailed view of results.
 - ✓ Display for authentication system.
 - ✗ Use of Redux.
-- ✗ Filter feature.
+- ✓ Filter feature.
 - ✗ Debouncing for search bar.
 - ✓ Modularised 7-1 Sass pattern.
 
