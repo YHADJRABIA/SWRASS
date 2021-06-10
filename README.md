@@ -48,7 +48,7 @@ password: DadSucks
 - (In progress) Extra detailed view of results.
 - ✓ Display for authentication system.
 - ✗ Use of Redux.
-- ✓ Filter feature.
+- (In progress) Filter feature.
 - ✗ Debouncing for search bar.
 - ✓ Modularised 7-1 Sass pattern.
 
