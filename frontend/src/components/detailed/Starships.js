@@ -1,6 +1,6 @@
 import React from "react";
 
-const starships = () => {
+const starships = (data) => {
   return (
     <>
       <div className="detailed-container">

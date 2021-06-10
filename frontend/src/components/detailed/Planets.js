@@ -1,6 +1,6 @@
 import React from "react";
 
-const planets = () => {
+const planets = (data) => {
   return (
     <>
       <div className="detailed-container">

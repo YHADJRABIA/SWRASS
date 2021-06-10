@@ -13,20 +13,13 @@ const Filter = () => {
     e.target.classList.toggle("active-filter");
     e.preventDefault();
     // À modifier en utilisant le setIsFiltered
-    /* if (isFiltered.includes(e.target.id)) {
+    if (isFiltered.includes(e.target.id)) {
       isFiltered.splice(isFiltered.indexOf(e.target.id), 1);
     } else {
       isFiltered.push(e.target.id);
-    } */
+    }
 
-    setIsFiltered("people");
-
-    /*    setIsFiltered(
-      (isFiltered) => [...isFiltered, { id: e.target.id }],
-      () => {
-        console.log(isFiltered);
-      }
-    ); */
+    /*     setIsFiltered("people"); */
   };
   return (
     <div className="filter-container">

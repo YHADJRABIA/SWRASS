@@ -1,6 +1,6 @@
 import React from "react";
 
-const species = () => {
+const species = (data) => {
   return (
     <>
       <div className="detailed-container">

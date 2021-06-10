@@ -1,6 +1,6 @@
 import React from "react";
 
-const films = () => {
+const films = (data) => {
   return (
     <>
       <div className="detailed-container">

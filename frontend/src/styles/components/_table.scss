@@ -15,14 +15,18 @@ tr:nth-child(even) {
 }
 
 th {
-  width: 20rem;
+  width: 100vw;
   background-color: #7f5a83;
   background-image: linear-gradient(315deg, #7f5a83 0%, #0d324d 74%);
   color: white;
   @include respond-to("medium") {
     width: 30rem;
+    text-align: center;
   }
 }
 td {
   text-transform: capitalize;
+}
+.detailed-title {
+  font-weight: 600;
 }
