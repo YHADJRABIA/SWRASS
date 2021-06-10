@@ -9,6 +9,7 @@
 
 @import "layout/nav", "layout/main", "layout/footer", "layout/forms";
 
-@import "components/buttons", "components/filter", "components/cards";
+@import "components/buttons", "components/filter", "components/cards",
+  "components/table", "components/searchbar";
 
 @import "pages/home", "pages/login", "pages/detailed-sheet";

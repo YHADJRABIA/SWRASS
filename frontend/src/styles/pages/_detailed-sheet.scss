@@ -22,4 +22,30 @@
   }
 }
 .detailed-info {
+  padding: 2rem;
+  @include flexCenter(column);
+  justify-content: space-around;
+  width: inherit;
+  height: inherit;
+}
+
+.detailed-header {
+  text-align: center;
+
+  h2 {
+    color: red;
+    letter-spacing: 1rem;
+    font-family: $regularFont;
+  }
+}
+
+.detailed-sub-header > * {
+  border: 1px solid blue;
+  @include flexCenter(row);
+  justify-content: space-around;
+  font-family: $regularFont;
+  color: red;
+}
+
+.specific-info {
 }

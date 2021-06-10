@@ -30,7 +30,7 @@ module.exports = [
         typeof request.state["auth-cookie"] !== "undefined" &&
         request.state["auth-cookie"].username === process.env.USER_NAME
       ) {
-        returnreply
+        return reply
           .response({
             state: "Warning",
             message: "Utilisateur déjà connecté",

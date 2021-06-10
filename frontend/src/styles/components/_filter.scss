@@ -16,6 +16,7 @@
 }
 
 .filter-list {
+  margin-top: 3rem;
   width: inherit;
   @include flexCenter(row);
   justify-content: space-evenly;
@@ -37,8 +38,11 @@
   &:hover {
     transform: scale(1.1);
   }
+  & > * {
+    pointer-events: none;
+  }
 }
 .active-filter {
-  background-color: yellow;
-  color: white;
+  background-color: $nav-bg;
+  color: $starWarsColour;
 }

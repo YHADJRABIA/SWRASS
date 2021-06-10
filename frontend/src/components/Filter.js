@@ -1,15 +1,32 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
+
+// Contexts
 import { DataContext } from "../contexts/DataContext";
 
 const Filter = () => {
-  const { categories } = useContext(DataContext);
+  const { categories } = useContext(DataContext).content;
+  const { isFiltered, setIsFiltered } = useContext(DataContext);
 
-  const [isActive, setActive] = useState(true);
-  const [filterItem, setFilterItem] = useState("");
+  useEffect(() => {}, []);
 
   let handleOnClick = (e) => {
-    console.log(e.target);
-    /*     setActive(!isActive); */
+    e.target.classList.toggle("active-filter");
+    e.preventDefault();
+    // À modifier en utilisant le setIsFiltered
+    /* if (isFiltered.includes(e.target.id)) {
+      isFiltered.splice(isFiltered.indexOf(e.target.id), 1);
+    } else {
+      isFiltered.push(e.target.id);
+    } */
+
+    setIsFiltered("people");
+
+    /*    setIsFiltered(
+      (isFiltered) => [...isFiltered, { id: e.target.id }],
+      () => {
+        console.log(isFiltered);
+      }
+    ); */
   };
   return (
     <div className="filter-container">
@@ -18,6 +35,7 @@ const Filter = () => {
           <li
             className="filter-item"
             key={id}
+            id={category.type}
             onClick={(e) => handleOnClick(e)}
           >
             <i className={category.icon}></i>

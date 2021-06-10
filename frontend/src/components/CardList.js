@@ -7,10 +7,9 @@ import { DataContext } from "../contexts/DataContext";
 import Card from "./Card";
 let count = 0;
 
-const CardList = ({ data }) => {
-  let [loading, setLoading] = useState(true);
+const CardList = () => {
+  const { loading, setLoading, data, icons } = useContext(DataContext);
   useEffect(() => {
-    console.log(data);
     if (typeof data !== "undefined" && loading !== false) setLoading(false);
   }, []);
 
@@ -22,7 +21,9 @@ const CardList = ({ data }) => {
               count++;
               return (
                 <Card
-                  type={els.category}
+                  data={el}
+                  icons={icons}
+                  category={els.category}
                   key={count}
                   name={el.name || el.title}
                 />

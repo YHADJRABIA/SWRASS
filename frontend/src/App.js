@@ -8,6 +8,9 @@ import PageNotFound from "./pages/PageNotFound.js";
 import Browse from "./pages/Browse.js";
 import DetailedSheet from "./pages/DetailedSheet.js";
 
+// Contexts
+import { DataProvider } from "./contexts/DataContext";
+
 //Components
 import Footer from "./components/Footer";
 
@@ -28,7 +31,6 @@ function App() {
     currentUser,
     setCurrentUser,
   };
-  let [data, setData] = useState("");
 
   return (
     <UserContext.Provider value={UserContextValue}>
@@ -37,12 +39,14 @@ function App() {
           <Router>
             <Switch>
               <Route exact path="/" component={Home} />
-              <ProtectedRoute exact path="/browse" component={Browse} />
-              <ProtectedRoute
-                exact
-                path="/detailed"
-                component={DetailedSheet}
-              />
+              <DataProvider>
+                <ProtectedRoute exact path="/browse" component={Browse} />
+                <ProtectedRoute
+                  exact
+                  path="/detailed:name"
+                  component={DetailedSheet}
+                />
+              </DataProvider>
               <Route path="*" component={PageNotFound} />
             </Switch>
           </Router>

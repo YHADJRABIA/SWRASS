@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Redirect, useHistory } from "react-router-dom";
 import { useAuth } from "../authentication/useAuth";
 
-const DetailedSheet = (props) => {
+//Contexts
+import { DataContext } from "../contexts/DataContext";
+
+const DetailedSheet = () => {
   const { isLoading, isLoggedIn } = useAuth();
-  useEffect(() => {
-    console.log("IsLoggedIn: ", isLoggedIn);
-  }, []);
+  useEffect(() => {}, []);
   // Redirection si utilisateur non connecté
   /*   if (!isLoggedIn) return <Redirect to="/" />; */
 
@@ -17,25 +18,78 @@ const DetailedSheet = (props) => {
         <div className="info-wrapper">
           <div className="detailed-info">
             <div className="detailed-header">
-              <h2>Nom</h2>
+              <h2>Luke Skywalker</h2>
             </div>
-            <div className="detailed-sub-header">
-              <h3>Espèce</h3>
-              <h3>Véhicule</h3>
-              <h3>Vaisseau spatial</h3>
-              <h3>Planète</h3>
-              <h3>Films</h3>
-            </div>
+            <h3>Infos Générales</h3>
 
-            <ul>
-              <li>Année de naissance</li>
-              <li>Couleur des yeux</li>
-              <li>Sexe</li>
-              <li>Couleur des cheveux</li>
-              <li>Taille</li>
-              <li>Poids</li>
-              <li>Couleur de peau</li>
-            </ul>
+            <table className="general-info">
+              <tr>
+                <th>Espèce</th>
+                <td>19BBY</td>
+              </tr>
+              <tr>
+                <th>Véhicules</th>
+                <td>blond</td>
+              </tr>
+              <tr>
+                <th>Vaisseaux Spatiaux</th>
+                <td>172</td>
+              </tr>
+              <tr>
+                <th>Planète</th>
+                <td>77</td>
+              </tr>
+              <tr>
+                <th>Films</th>
+                <td>fair</td>
+              </tr>
+            </table>
+            <div className="detailed-sub-header">
+              {/*               <h4>
+                Espèce : <span>Humain </span>
+              </h4>
+              <h4>
+                Véhicules : <span>Test</span>
+              </h4>
+              <h4>
+                Vaisseaux spatiaux : <span>test</span>{" "}
+              </h4>
+              <h4>
+                Planète : <span>Terre</span>
+              </h4>
+              <h4>
+                Films :
+                <span>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex
+                  laborum expedita debitis dolorem iure delectus in similique
+                  architecto aliquid ea nemo rem deserunt, incidunt optio maxime
+                  aspernatur eum tempora eligendi.
+                </span>
+              </h4> */}
+            </div>
+            <h3>Infos spécifiques</h3>
+            <table className="specific-info">
+              <tr>
+                <th>Année de naissance</th>
+                <td>19BBY</td>
+              </tr>
+              <tr>
+                <th>Couleur des yeux</th>
+                <td>blond</td>
+              </tr>
+              <tr>
+                <th>Couleur des cheveux</th>
+                <td>172</td>
+              </tr>
+              <tr>
+                <th>Taille</th>
+                <td>77</td>
+              </tr>
+              <tr>
+                <th> Couleur de peau</th>
+                <td>fair</td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>

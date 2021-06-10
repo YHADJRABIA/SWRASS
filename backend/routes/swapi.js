@@ -41,6 +41,49 @@ module.exports = [
       return JSON.parse(swapiData);
     },
   },
+  {
+    method: "POST",
+    path: "/swapi/search",
+    handler: async (request, reply) => {
+      const form = request.payload;
+      // Vérification si l'utilisateur est connecté pour utiliser l'API, autrement le rediriger vers page 401
+      if (
+        typeof request.state["auth-cookie"] === "undefined" ||
+        request.state["auth-cookie"].username !== process.env.USER_NAME
+      ) {
+        return reply.redirect("/401?error=Not logged in");
+      }
+      // Vérification si paramètres de filtre et recherche sont vides
+      if (
+        typeof form.keyword === "undefined" ||
+        typeof form.isFiltered === "undefined"
+      ) {
+        return reply.redirect("/400?error=Missing parameter");
+      } // Vérification si paramètre de recherche vierge
+      else if (form.keyword.trim().length <= 0 && form.isFiltered.length <= 0) {
+        return reply.redirect("/400?error=Wrong input");
+      }
+      // Si ensemble des cases filtres cochées, on considère qu'aucun filtre n'est choisi ou si injection de filtre
+      if (
+        form.isFiltered.length <= 0 ||
+        form.isFiltered.every((el) => paramList.includes(el))
+      ) {
+        form.isFiltered = paramList;
+      }
+      let data = [];
+      for (let i of paramList) {
+        const response = await Axios.get(
+          `https://swapi.dev/api/${i}?search=${form.keyword}`
+        );
+        let swapiData = JSON.stringify(await response.data)
+          .replace(/swapi.dev\/api/gi, `localhost:${process.env.PORT}/swapi`)
+          .replace(/\/"/gi, '"');
+        data.push({ category: i, data: JSON.parse(swapiData).results });
+      }
+
+      return data;
+    },
+  },
 
   // Méthode GET recherche ciblée
   {
