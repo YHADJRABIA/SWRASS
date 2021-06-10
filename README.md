@@ -41,7 +41,7 @@ password: DadSucks
 
 - ✓ Search bar.
 - ✓ Display name and image of every listed result.
-- ✗ Detailed sheet for each result.
+- ✓ Detailed sheet for each result.
 
 #### Optional:
 
