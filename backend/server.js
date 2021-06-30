@@ -1,6 +1,6 @@
 "use strict";
 require("dotenv").config({ path: `${__dirname}/config/.env` }); // Accès aux données cachées du .env
-const PORT = process.env.port || 5000; // Si .env innaccessible ou port déjà occupé alors utiliser le port 5000
+const PORT = process.env.port || 5001; // Si .env innaccessible ou port déjà occupé alors utiliser le port 5000
 const router = require("./routes/router.js"); // Routes vers differents endpoints du backend
 const Hapi = require("@hapi/hapi"); // Framework NodeJS utilisé pour le serveur
 
