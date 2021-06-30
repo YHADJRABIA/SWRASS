@@ -14,7 +14,7 @@ const DetailedSheet = (props) => {
   useEffect(() => {}, []);
 
   return (
-    <n>
+    <>
       <div className="detailed-container">
         <div className="info-wrapper">
           <div className="detailed-info">
@@ -23,14 +23,17 @@ const DetailedSheet = (props) => {
             </div>
             {Object.keys(info).map((key, i) => {
               if (i !== 0 && key !== "films") {
-                return <h5 key={i}>{`${key} : ${info[key]} `}</h5>;
+                return (
+                  <h5 key={i}>
+                    {key} : {info[key]}
+                  </h5>
+                );
               }
             })}
           </div>
         </div>
-      </div>{" "}
-      *
-    </n>
+      </div>
+    </>
   );
 };
 

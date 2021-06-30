@@ -59,12 +59,15 @@ export const DataProvider = ({ children }) => {
     // Sinon récuperer infos filtrées
     else {
       console.log(keyword, isFiltered);
-      clearTimeout(timer);
+      setTimeout(() => {
+        filterResults({ keyword, isFiltered });
+      }, 500);
+      /*       clearTimeout(timer);
       setTimer(
         setTimeout(() => {
           filterResults({ keyword, isFiltered });
         }, 500)
-      );
+      ); */
     }
   }, [isFiltered, keyword]);
   let icons = {

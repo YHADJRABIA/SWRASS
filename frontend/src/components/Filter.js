@@ -10,16 +10,16 @@ const Filter = () => {
   useEffect(() => {}, []);
 
   let handleOnClick = (e) => {
-    e.target.classList.toggle("active-filter");
     e.preventDefault();
+    e.target.classList.toggle("active-filter");
+
     // À modifier en utilisant le setIsFiltered
     if (isFiltered.includes(e.target.id)) {
-      isFiltered.splice(isFiltered.indexOf(e.target.id), 1);
+      console.log(e.target.id);
+      setIsFiltered(isFiltered.filter((el) => el !== e.target.id));
     } else {
-      isFiltered.push(e.target.id);
+      setIsFiltered((oldArray) => [...oldArray, e.target.id]);
     }
-
-    /*     setIsFiltered("people"); */
   };
   return (
     <div className="filter-container">
