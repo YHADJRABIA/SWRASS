@@ -9,12 +9,9 @@ export const useAuth = () => {
   const { setCurrentUser, currentUser } = userContext;
 
   useEffect(() => {
-    Axios.get(
-      /* process.env.BACKEND_URL */ "http://localhost:5001/is-logged-in",
-      {
-        withCredentials: true,
-      }
-    )
+    Axios.get(`${process.env.REACT_APP_BACKEND_URL}/is-logged-in`, {
+      withCredentials: true,
+    })
       .then((res) => {
         setIsLoggedIn(true);
         setIsLoading(false);

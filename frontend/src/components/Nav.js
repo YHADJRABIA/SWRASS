@@ -14,7 +14,7 @@ const Nav = () => {
   let history = useHistory();
   const handleClick = async (e) => {
     e.preventDefault();
-    await Axios.post("http://localhost:5001/logout")
+    await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/logout`)
       .then((res) => history.push("/"))
       .catch((err) => {
         console.log(err);

@@ -19,7 +19,10 @@ export const DataProvider = ({ children }) => {
 
   const filterResults = async (...filteredData) => {
     let tempData = data;
-    await Axios.post(`http://localhost:5001/swapi/search`, filteredData[0])
+    await Axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}/swapi/search`,
+      filteredData[0]
+    )
       .then((res) => {
         setLoading(true);
         setData(res.data);
@@ -39,7 +42,9 @@ export const DataProvider = ({ children }) => {
       let fetchedData = [];
 
       for (let i of content.categories.map((el) => el.type)) {
-        fetchedData[i] = await Axios.get(`http://localhost:5001/swapi/${i}`)
+        fetchedData[i] = await Axios.get(
+          `${process.env.REACT_APP_BACKEND_URL}/swapi/${i}`
+        )
           .then((res) => {
             setData((data) => [
               ...data,

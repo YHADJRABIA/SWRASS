@@ -23,7 +23,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await Axios.post("http://localhost:5001/login", {
+    await Axios.post(`${process.env.REACT_APP_BACKEND_URL}/login`, {
       username,
       password,
     })
