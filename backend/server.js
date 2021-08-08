@@ -34,6 +34,23 @@ const init = async () => {
 
   server.route({
     method: "GET",
+    path: "/hello",
+    handler: (request, reply) => {
+      return reply("hello world");
+    },
+    /* path: "/{param*}",
+    handler: {
+      directory: {
+        path: reply.file(
+          path.join(__dirname, "../frontend/build", "index.html")
+        ),
+              redirectToSlash: true, 
+      },
+    }, */
+  });
+
+  server.route({
+    method: "GET",
     path: "/",
     handler: (request, reply) => {
       reply.file(path.join(__dirname, "frontend", "build", "index.html"));
