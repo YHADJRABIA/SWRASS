@@ -55,6 +55,8 @@ const init = async () => {
   console.log(`Server running on port ${server.info.uri} ✓`);
 };
 
+console.log("Used port is", PORT);
+
 process.on("unhandledRejection", (err) => {
   console.log(err);
   process.exit(1);
