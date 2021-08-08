@@ -9,7 +9,7 @@ const Hapi = require("@hapi/hapi"); // Framework NodeJS utilisé pour le serveur
 const init = async () => {
   const server = Hapi.server({
     port: PORT,
-    /*    host: HOST, */
+    /*    host: HOST, */ //should be removed to avoid hosting bugs on Heroku
 
     routes: {
       // Afin que des requêtes externes puissent être faites au serveur
@@ -20,32 +20,34 @@ const init = async () => {
     },
   });
 
-  // Rendu static servi si application en production
-
-  await server.register(require("@hapi/inert"));
-
-  server.route({
-    method: "GET",
-    /*     path: "/",
-    handler: (request, reply) => {
-      reply.file(path.join(__dirname, "frontend", "build", "index.html"));
-    }, */
-
-    path: "/{param*}",
-    handler: {
-      directory: {
-        path: path.join(__dirname, "frontend", "build", "index.html"),
-        /*         redirectToSlash: true, */
-      },
-    },
-  });
-
   // Cookie d'authentification
   server.state("auth-cookie", {
     ttl: 24 * 60 * 60 * 1000, // 24 heures
     isSecure: false, // Http non sécurisé accepté
     encoding: "base64json",
     path: "/",
+  });
+
+  // Rendu static servi si application en production
+
+  await server.register(require("@hapi/inert"));
+
+  server.route({
+    method: "GET",
+    path: "/",
+    handler: (request, reply) => {
+      reply.file(path.join(__dirname, "frontend", "build", "index.html"));
+    },
+
+    /* path: "/{param*}",
+    handler: {
+      directory: {
+        path: reply.file(
+          path.join(__dirname, "../frontend/build", "index.html")
+        ),
+              redirectToSlash: true, 
+      },
+    }, */
   });
 
   // Endpoints
