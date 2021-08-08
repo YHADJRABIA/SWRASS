@@ -1,14 +1,15 @@
 "use strict";
 require("dotenv").config({ path: `${__dirname}/config/.env` }); // Accès aux données cachées du .env
 const path = require("path");
-const PORT = process.env.PORT || 5000; // Si .env innaccessible ou port déjà occupé alors utiliser le port 5001
+const PORT = process.env.PORT || 5000; // Si .env innaccessible ou port déjà occupé alors utiliser le port 5000
+const HOST = process.env.HOST || "localhost";
 const router = require("./routes/router.js"); // Routes vers differents endpoints du backend
 const Hapi = require("@hapi/hapi"); // Framework NodeJS utilisé pour le serveur
 
 const init = async () => {
   const server = Hapi.server({
     port: PORT,
-    host: "localhost",
+    /*    host: HOST, */
 
     routes: {
       // Afin que des requêtes externes puissent être faites au serveur
