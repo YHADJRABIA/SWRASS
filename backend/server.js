@@ -20,11 +20,12 @@ const init = async () => {
   });
 
   // Rendu static servi si application en production
+
   await server.register(require("@hapi/inert"));
 
   server.route({
     method: "GET",
-    path: path.join(__dirname, "/frontend/build"),
+    path: "/",
     handler: (request, reply) => {
       reply.file(path.join(__dirname, "frontend", "build", "index.html"));
     },
