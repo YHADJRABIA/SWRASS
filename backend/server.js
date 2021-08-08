@@ -19,6 +19,17 @@ const init = async () => {
     },
   });
 
+  // Rendu static servi si application en production
+  await server.register(require("@hapi/inert"));
+
+  server.route({
+    method: "GET",
+    path: path.join(__dirname, "/frontend/build"),
+    handler: (request, reply) => {
+      reply.file(path.join(__dirname, "frontend", "build", "index.html"));
+    },
+  });
+
   // Cookie d'authentification
   server.state("auth-cookie", {
     ttl: 24 * 60 * 60 * 1000, // 24 heures
