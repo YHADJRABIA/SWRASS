@@ -32,13 +32,13 @@ const init = async () => {
 
   await server.register(require("@hapi/inert"));
 
-  server.route({
+  /*server.route({
     method: "GET",
     path: "/hello",
     handler: (request, h) => {
       return "Hello World!";
     },
-    /* path: "/{param*}",
+     path: "/{param*}",
     handler: {
       directory: {
         path: reply.file(
@@ -46,14 +46,14 @@ const init = async () => {
         ),
               redirectToSlash: true, 
       },
-    }, */
-  });
+    }, 
+  });*/
 
   server.route({
     method: "GET",
     path: "/",
     handler: (request, reply) => {
-      reply.file(path.join(__dirname, "frontend", "build", "index.html"));
+      reply.file(path.join(__dirname, "../frontend", "build", "index.html"));
     },
 
     /* path: "/{param*}",
