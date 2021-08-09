@@ -35,8 +35,8 @@ const init = async () => {
   server.route({
     method: "GET",
     path: "/hello",
-    handler: (request, reply) => {
-      return "hello world";
+    handler: (request, h) => {
+      return "Hello World!";
     },
     /* path: "/{param*}",
     handler: {
