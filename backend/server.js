@@ -36,7 +36,7 @@ const init = async () => {
     method: "GET",
     path: "/hello",
     handler: (request, reply) => {
-      reply("hello world");
+      return "hello world";
     },
     /* path: "/{param*}",
     handler: {
